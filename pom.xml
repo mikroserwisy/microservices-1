@@ -19,6 +19,7 @@
         <module>orders</module>
         <module>orders-api</module>
         <module>shop</module>
+        <module>configuration-server</module>
     </modules>
 
 </project>
