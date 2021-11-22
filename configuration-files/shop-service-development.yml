@@ -1,0 +1,8 @@
+logging:
+  level:
+    pl.training: DEBUG
+feign:
+  client:
+    config:
+      default: #productsClient
+        loggerLevel: BASIC

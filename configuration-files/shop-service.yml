@@ -1,0 +1,21 @@
+service:
+  port: 9000
+spring:
+  jpa:
+    generate-ddl: true
+    open-in-view: false
+  datasource:
+    url: jdbc:postgresql://localhost:5432/training
+    username: admin
+    password: admin
+    driver-class-name: org.postgresql.Driver
+  profiles:
+    active: development
+logging:
+  level:
+    org.springframework.transaction: trace
+    org.javamoney.moneta.FastMoney: OFF
+api:
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjM3MTQ4NzE2LCJleHAiOjE2Mzk3NDA3MTZ9.txIo7pVhdwS1wxHqHXxNkClqrvVOwMSIhCZCwCnQz_s
+  products: https://fullstack-developer.io/api-dev/products
+  payments: http://localhost:8081/payments
