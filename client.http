@@ -14,7 +14,7 @@ Content-Type: application/json
 
 ###
 
-GET http://localhost:8080/payments/d17f36b1-1ea2-4a74-a305-3d510e2ecb74
+GET http://localhost:8080/payments/9a0a5d31-59ec-4cc3-a50f-d3a5db72e3339
 Accept: application/json
 Content-Type: application/json
 
@@ -35,6 +35,7 @@ Content-Type: application/json
 ###
 
 GET https://fullstack-developer.io/api-dev/products?_start=0&_limit=10
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjM3NTgwMjQ1LCJleHAiOjE2NDAxNzIyNDV9.lTfYjtwdnvvlxuG7o3V468KFLSxkq8XemblFS49yvcQ
 
 ###
 
