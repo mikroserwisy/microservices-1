@@ -83,7 +83,9 @@ GET http://localhost:8888/shop-service-default.yml
 
 GET http://localhost:8888/shop-service-development.yml
 
+###
 
+GET http://localhost:8888/discovery-server-development.yml
 
 
 
