@@ -1,14 +1,90 @@
-POST http://localhost:8000/users
-Content-Type: application/json
+POST http://localhost:8080/payments
 Accept: application/json
+Content-Type: application/json
 
 {
-  "firstName": "Jan",
-  "lastName": "Kowalski"
+  "requestId": 1,
+  "value": "5 PLN",
+  "additionalInfo": {
+    "cardNumber": "1234567789",
+    "cvv": 255
+  }
+
 }
 
 ###
 
-GET http://localhost:8000/users/2
-Content-Type: application/json
+GET http://localhost:8080/payments/d17f36b1-1ea2-4a74-a305-3d510e2ecb74
 Accept: application/json
+Content-Type: application/json
+
+###
+
+POST http://localhost:8080/orders
+Accept: application/json
+Content-Type: application/json
+
+{
+  "id": 1,
+  "entries": {
+    "1": 2,
+    "2": 5
+  }
+}
+
+###
+
+GET https://fullstack-developer.io/api-dev/products?_start=0&_limit=10
+
+###
+
+GET https://fullstack-developer.io/api-dev/products/count
+
+###
+
+POST https://fullstack-developer.io/api-dev/auth/local
+Accept: application/json
+Content-Type: application/json
+
+{
+  "identifier": "training@sages.pl",
+  "password": "P@ssw0rd"
+}
+
+###
+
+POST http://localhost:8081/payments
+Accept: application/json
+Content-Type: application/json
+
+{
+  "requestId": 1,
+  "value": "100 PLN"
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
