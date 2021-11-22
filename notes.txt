@@ -1,0 +1,2 @@
+- dodać usługę products-service, zintegrowana z config-server i eureką, dostarczającą listę produktów
+(alternatywa dla aktualnego, zew. serwisu z produktami)
