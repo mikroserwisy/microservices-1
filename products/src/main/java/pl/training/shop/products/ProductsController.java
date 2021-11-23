@@ -2,10 +2,7 @@ package pl.training.shop.products;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -29,6 +26,12 @@ class ProductsController {
     ResponseEntity<ProductDto> getProduct(@PathVariable Long id) {
         var product = productsService.getProduct(id);
         return ResponseEntity.ok(mapper.toDto(product));
+    }
+
+    @PostMapping
+    ResponseEntity<Void> refresh() {
+        productsService.refresh();
+        return ResponseEntity.noContent().build();
     }
 
 }

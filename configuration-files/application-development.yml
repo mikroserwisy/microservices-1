@@ -8,3 +8,8 @@ eureka:
   instance:
     preferIpAddress: true
     hostname: localhost
+management:
+  endpoints:
+    web:
+      exposure:
+          include: '*'

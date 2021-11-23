@@ -28,11 +28,16 @@ class FakeProductsService implements ProductsService {
 
     @Override
     public Product getProduct(Long id) {
-        streamBridge.send(CHANNEL_NAME, "Updating products...");
         return PRODUCTS.stream()
                 .filter(product -> product.getId().equals(id))
                 .findFirst()
                 .orElseThrow(IllegalArgumentException::new);
+    }
+
+    @Override
+    public void refresh() {
+        // refreshing prices
+        streamBridge.send(CHANNEL_NAME, "Products updates...");
     }
 
 }

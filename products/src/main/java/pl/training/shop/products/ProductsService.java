@@ -8,4 +8,6 @@ interface ProductsService {
 
     Product getProduct(Long id);
 
+    void refresh();
+
 }
