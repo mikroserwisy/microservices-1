@@ -12,6 +12,8 @@ spring:
   profiles:
     active: development
   cloud:
+    function:
+      definition: productsUpdatesListener
     stream:
       bindings:
         productsUpdatesListener-in-0:
