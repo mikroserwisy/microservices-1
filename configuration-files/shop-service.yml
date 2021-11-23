@@ -11,6 +11,15 @@ spring:
     driver-class-name: org.postgresql.Driver
   profiles:
     active: development
+  cloud:
+    stream:
+      bindings:
+        productsUpdatesListener-in-0:
+          destination: products
+          group: shop
+      kafka:
+        binder:
+          brokers: localhost:9092
 logging:
   level:
     org.springframework.transaction: trace

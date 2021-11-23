@@ -95,7 +95,7 @@ Content-Type: application/json
 
 ###
 
-GET http://localhost:9002/products
+GET http://localhost:9002/products/1
 Accept: application/json
 Content-Type: application/json
 
