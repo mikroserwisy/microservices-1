@@ -18,7 +18,7 @@ import java.util.List;
 
 import static lombok.AccessLevel.PACKAGE;
 
-@Primary
+//@Primary
 @RestController
 @Log
 @RequiredArgsConstructor(access = PACKAGE)

@@ -1,0 +1,11 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: shop
+          predicates:
+            - Path=/api/shop/**
+          uri: lb://SHOP-SERVICE
+          filters:
+            - RewritePath=/api/shop(?<segment>.*), $\{segment}
+            - RewriteLocationResponseHeader=AS_IN_REQUEST, Location
