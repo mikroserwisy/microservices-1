@@ -2,6 +2,7 @@ package pl.training.shop;
 
 import org.mapstruct.factory.Mappers;
 import org.springframework.boot.web.client.RestTemplateBuilder;
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -35,6 +36,7 @@ class ShopConfiguration {
         return Mappers.getMapper(FastMoneyMapper.class);
     }
 
+    @LoadBalanced
     @Bean
     RestTemplate restTemplate(RestTemplateAuthorizationInterceptor authorizationInterceptor) {
         return new RestTemplateBuilder()

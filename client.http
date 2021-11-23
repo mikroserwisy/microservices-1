@@ -87,7 +87,17 @@ GET http://localhost:8888/shop-service-development.yml
 
 GET http://localhost:8888/discovery-server-development.yml
 
+###
 
+GET http://localhost:9002/products
+Accept: application/xml
+Content-Type: application/json
+
+###
+
+GET http://localhost:9002/products
+Accept: application/json
+Content-Type: application/json
 
 
 

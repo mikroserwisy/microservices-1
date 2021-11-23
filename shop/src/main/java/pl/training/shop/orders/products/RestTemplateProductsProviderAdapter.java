@@ -32,10 +32,9 @@ class RestTemplateProductsProviderAdapter implements ProductsProvider {
 
     @Override
     public ResultPage<Product> getProducts(Page page) {
-        var url = productsEndpoint + "?_start={0}&_limit={1}";
         try {
-            var productsDto = restTemplate.getForObject(url, ProductDto[].class, page.getIndex() * page.getSize(), page.getSize());
-            var totalEntries = restTemplate.getForObject(productsEndpoint + "/count", Integer.class);
+            var productsDto = restTemplate.getForObject(productsEndpoint, ProductDto[].class);
+            var totalEntries = productsDto.length;
             var resultPage = new ResultPage<>(List.of(productsDto), page, totalEntries);
             return mapper.toModel(resultPage);
         } catch (RestClientException exception) {

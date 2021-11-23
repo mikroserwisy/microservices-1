@@ -17,5 +17,6 @@ logging:
     org.javamoney.moneta.FastMoney: OFF
 api:
   token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjM3MTQ4NzE2LCJleHAiOjE2Mzk3NDA3MTZ9.txIo7pVhdwS1wxHqHXxNkClqrvVOwMSIhCZCwCnQz_s
-  products: https://fullstack-developer.io/api-dev/products
+  #products: https://fullstack-developer.io/api-dev/products
+  products: https://PRODUCTS-SERVICE/products
   payments: http://localhost:9001/payments
