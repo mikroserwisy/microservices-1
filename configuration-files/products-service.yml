@@ -1,2 +1,11 @@
 server:
   port: 9002
+spring:
+  cloud:
+    stream:
+      bindings:
+        products-out-0:
+          destination: products
+      kafka:
+        binder:
+          brokers: localhost:9092

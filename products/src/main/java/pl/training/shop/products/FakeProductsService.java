@@ -1,11 +1,27 @@
 package pl.training.shop.products;
 
+import lombok.AccessLevel;
+import lombok.RequiredArgsConstructor;
+import org.springframework.cloud.stream.function.StreamBridge;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.PostConstruct;
 import java.util.List;
 
+import static lombok.AccessLevel.PACKAGE;
+
 @Service
+@RequiredArgsConstructor(access = PACKAGE)
 class FakeProductsService implements ProductsService {
+
+    final static String CHANNEL_NAME = "products-out-0";
+
+    private final StreamBridge streamBridge;
+
+    @PostConstruct
+    void init() {
+        streamBridge.send(CHANNEL_NAME, "Updating products...");
+    }
 
     private static final List<Product> PRODUCTS = List.of(
             new Product(1L, "Spring in action", 200L),
