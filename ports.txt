@@ -1,0 +1,5 @@
+shop:9000
+broker:9001
+postgres:5433
+config:8888
+eureka:8761

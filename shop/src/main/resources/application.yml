@@ -6,7 +6,5 @@ spring:
   cloud:
     config:
       label: master # default
-  datasource:
-    url: jdbc:postgresql://localhost:5432/training
   profiles:
     active: development
