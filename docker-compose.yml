@@ -91,14 +91,20 @@ services:
     image: discovery-server
     environment:
       CONFIGURATION_SERVER:  optional:configserver:http://configuration-server:8888
+    ports:
+      - "8761:8761"
   gateway-server:
     image: gateway-server
     environment:
       CONFIGURATION_SERVER:  optional:configserver:http://configuration-server:8888
+    ports:
+      - "8080:8080"
   products:
     image: products
     environment:
       CONFIGURATION_SERVER:  optional:configserver:http://configuration-server:8888
+    ports:
+      - "9002:9002"
   shop:
     image: shop
     environment:
