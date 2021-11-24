@@ -10,8 +10,8 @@ services:
       - POSTGRES_PASSWORD=admin
       - PGDATA=/database
     command: ["postgres", "-c", "log_statement=all"]
-  #    volumes:
-  #    - ./data/postgres:/database
+    volumes:
+      - ./data/postgres:/database
   pgadmin:
     image: dpage/pgadmin4
     ports:
@@ -32,3 +32,15 @@ services:
     environment:
       KAFKA_ADVERTISED_HOST_NAME: localhost
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+  keycloak:
+    image: jboss/keycloak
+    environment:
+      KEYCLOAK_USER: "admin"
+      KEYCLOAK_PASSWORD: "admin"
+      DB_VENDOR: "POSTGRES"
+      DB_ADDR: "postgres"
+      DB_USER: "admin"
+      DB_PASSWORD: "admin"
+      DB_DATABASE: "training"
+    ports:
+      - "9100:8080"
