@@ -12,7 +12,7 @@ import java.io.IOException;
 
 import static org.springframework.http.HttpHeaders.AUTHORIZATION;
 
-@Component
+//@Component
 public class RestTemplateAuthorizationInterceptor implements ClientHttpRequestInterceptor {
 
     @Value("${api.token}")

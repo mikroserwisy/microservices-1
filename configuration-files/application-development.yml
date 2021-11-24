@@ -17,3 +17,8 @@ management:
     web:
       exposure:
           include: '*'
+keycloak:
+  realm: cloud
+  auth-server-url: http://localhost:9100/auth
+  resource: cloud-service
+  public-client: true

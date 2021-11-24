@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 import pl.training.shop.commons.FastMoneyMapper;
+import pl.training.shop.commons.keycloak.RestTemplateTokenInterceptor;
 import pl.training.shop.commons.rest.RestTemplateAuthorizationInterceptor;
 import springfox.documentation.spring.web.plugins.Docket;
 
@@ -38,7 +39,7 @@ class ShopConfiguration {
 
     @LoadBalanced
     @Bean
-    RestTemplate restTemplate(RestTemplateAuthorizationInterceptor authorizationInterceptor) {
+    RestTemplate restTemplate(RestTemplateTokenInterceptor authorizationInterceptor) {
         return new RestTemplateBuilder()
                 .additionalInterceptors(authorizationInterceptor)
                 .build();

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 
 import static org.springframework.http.HttpHeaders.AUTHORIZATION;
 
-@Component
+//@Component
 public class FeignAuthorizationInterceptor implements RequestInterceptor {
 
     @Value("${api.token}")
