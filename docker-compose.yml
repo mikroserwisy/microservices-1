@@ -109,3 +109,5 @@ services:
     image: shop
     environment:
       CONFIGURATION_SERVER:  optional:configserver:http://configuration-server:8888
+    ports:
+      - "9000:9000"

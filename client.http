@@ -19,6 +19,7 @@ Accept: application/json
 Content-Type: application/json
 
 ###
+//@no-cookie-jar
 
 POST http://localhost:9000/orders
 Accept: application/json

@@ -2,7 +2,7 @@ scrape_configs:
   - job_name: 'shop'
     metrics_path: /actuator/prometheus
     static_configs:
-      - targets: ['shop-service:9000']
+      - targets: ['shop:9000']
 rule_files:
   - 'rules.yml'
 alerting:

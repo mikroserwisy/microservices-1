@@ -24,3 +24,8 @@ keycloak:
   #auth-server-url: http://localhost:9100/auth
   resource: cloud-service
   public-client: true
+opentracing:
+  jaeger:
+    udp-sender:
+      host: jaeger-server
+      port: 6831
