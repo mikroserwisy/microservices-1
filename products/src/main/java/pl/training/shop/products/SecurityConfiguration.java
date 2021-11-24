@@ -37,11 +37,6 @@ public class SecurityConfiguration extends KeycloakWebSecurityConfigurerAdapter 
     }
 
     @Bean
-    public KeycloakSpringBootConfigResolver keycloakSpringBootConfigResolver() {
-        return new KeycloakSpringBootConfigResolver();
-    }
-
-    @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         var configuration = new CorsConfiguration();
         configuration.addAllowedOrigin("http://localhost:4200");
