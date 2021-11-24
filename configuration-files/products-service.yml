@@ -8,4 +8,5 @@ spring:
           destination: products
       kafka:
         binder:
-          brokers: localhost:9092
+          brokers: kafka:9092
+          #brokers: localhost:9092
