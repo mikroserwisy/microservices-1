@@ -1,0 +1,18 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: long-task-job
+  namespace: training
+spec:
+  parallelism: 2
+  completions: 3
+  ttlSecondsAfterFinished: 300
+  activeDeadlineSeconds: 3600
+  template:
+    metadata:
+      namespace: training
+    spec:
+      restartPolicy: OnFailure
+      containers:
+        - name: long-task
+          image: landrzejewski/long-task:v1

@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: ingress-svc
+  namespace: ingress-nginx
+spec:
+  type: LoadBalancer
+  selector:
+    app.kubernetes.io/component: controller
+    app.kubernetes.io/instance: ingress-nginx
+    app.kubernetes.io/name: ingress-nginx
+  ports:
+    - port: 80
+      name: http
+      targetPort: http #8080
+      nodePort: 30000
+    - port: 443
+      name: https
+      targetPort: https
+      nodePort: 30001

@@ -1,0 +1,67 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: echo-server-dep
+  namespace: training
+spec:
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 2
+  replicas: 10
+  selector:
+    #matchLabels:
+    #  app: echo-server
+    matchExpressions:
+      - key: app
+        values: 
+          - echo-server
+        operator: In # (In, Notin, Exists)
+  template:
+    metadata:
+      labels:
+        app: echo-server
+      namespace: training
+    spec:
+      containers:
+        - name: echo-server
+          image: landrzejewski/echo-server:v1
+          ports:
+            - containerPort: 8080
+              name: http
+          livenessProbe:
+            httpGet:
+              port: 8080
+              path: /
+            initialDelaySeconds: 5
+            periodSeconds: 2
+            failureThreshold: 3
+            timeoutSeconds: 2
+          readinessProbe:
+            httpGet:
+              port: 8080
+              path: /
+            initialDelaySeconds: 5
+            periodSeconds: 2
+            failureThreshold: 3
+            timeoutSeconds: 2
+            successThreshold: 10
+                      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 

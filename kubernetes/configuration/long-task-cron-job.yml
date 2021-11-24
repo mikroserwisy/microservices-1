@@ -1,0 +1,17 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: long-task-cron-job
+  namespace: training
+spec:
+  schedule: '0,15,30,45 * * * *'
+  jobTemplate:
+    metadata:
+      namespace: training
+    spec:
+      template:
+        spec:
+          restartPolicy: OnFailure
+          containers:
+            - name: long-task
+              image: landrzejewski/long-task:v1

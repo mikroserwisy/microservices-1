@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: status-monitor-ds
+  namespace: training
+spec:
+  selector:
+    #matchLabels:
+    #  app: status-monitor
+    matchExpressions:
+      - key: app
+        values: 
+          - status-monitor
+        operator: In # (In, Notin, Exists)
+  template:
+    metadata:
+      labels:
+        app: status-monitor
+      namespace: training
+    spec:
+      containers:
+        - name: status-monitor
+          image: landrzejewski/status-monitor:v1

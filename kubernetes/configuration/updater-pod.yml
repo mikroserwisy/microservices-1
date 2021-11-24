@@ -1,0 +1,88 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: updater-cm
+data:
+  INTERVAL: '10'
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: updater-sec
+type: Opaque
+data:
+  username: ams
+  password: h23qfdfvb23
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: updater-pvc
+  namespace: training
+spec:
+  resources:
+    requests:
+      storage: 1Gi
+  accessModes: 
+    - ReadWriteMany
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: updater
+  namespace: training
+spec:
+  containers:
+    - name: nginx
+      image: nginx:1.21.3-alpine
+      ports:
+        - containerPort: 80
+      volumeMounts:
+        - name: storage
+          mountPath: /usr/share/nginx/html
+    - name: updater
+      image: landrzejewski/updater:v1
+      volumeMounts:
+        - name: storage
+          mountPath: /var/htdocs
+        - name: config
+          mountPath: /var/config 
+      #args:
+      #  - '30'
+
+      #env:
+      #  - name: INTERVAL
+      #    value: '5'
+      
+      #env:
+      #  - name: INTERVAL
+      #    valueFrom:
+      #      configMapRef:
+      #        name: updater-cm
+      #        key: INTERVAL
+       
+      envFrom:
+        - configMapRef:
+            name: updater-cm
+        - secretRef:
+            name: updater-sec
+
+  volumes:
+     - name: storage
+       persistentVolumeClaim:
+          claimName: updater-pvc 
+       #glusterfs:
+          #endpoints: gfs-svc
+          #path: gv0
+          #readOnly: false 
+       #hostPath:
+          #path: /tmp/updater
+       #emptyDir:
+          #medium: Memory
+     - name: config
+       configMap:
+          name: updater-cm 
+
+
+
+
